@@ -15,6 +15,14 @@ let selectedEmoji='';
 // === INIT ===
 function init(){
   loadData();
+  // Cleanup any blank habits from storage so no empty row is displayed.
+  if(data.habits && data.habits.length>0){
+    const cleaned=data.habits.filter(h=>h.name&&h.name.trim()!=='');
+    if(cleaned.length!==data.habits.length){
+      data.habits=cleaned;
+      saveData();
+    }
+  }
   // MIGRATION: replace any existing habits with the new default set once
   // This ensures the reduced list appears in the UI even if previous data existed.
   if(!data.migratedToV1){
@@ -25,18 +33,9 @@ function init(){
       {id:uid(),name:'Drink 2L water',emoji:'',color:'#d63031'},
       {id:uid(),name:'Github',emoji:'',color:'#0984e3'},
       {id:uid(),name:'Devlopment',emoji:'',color:'#6c5ce7'},
-      {id:uid(),name:'',emoji:'',color:'#cccccc'},
     ];
     data.migratedToV1=true;
     saveData();
-  }
-  // Ensure there's an empty placeholder habit row so it appears even when data exists
-  if(data.habits && data.habits.length>0){
-    const hasEmpty=data.habits.some(h=>!h.name||h.name.trim()==='');
-    if(!hasEmpty){
-      data.habits.push({id:uid(),name:'',emoji:'',color:'#cccccc'});
-      saveData();
-    }
   }
   const now=new Date();
   currentYear=now.getFullYear();
@@ -63,8 +62,6 @@ function init(){
       {id:uid(),name:'Drink 2L water',emoji:'',color:'#d63031'},
       {id:uid(),name:'Github',emoji:'',color:'#0984e3'},
       {id:uid(),name:'Devlopment',emoji:'',color:'#6c5ce7'},
-      // Empty placeholder row so you can add a habit directly on the page
-      {id:uid(),name:'',emoji:'',color:'#cccccc'},
     ];
     saveData();
   }
