@@ -1,6 +1,7 @@
 # 📋 HabitCraft
 
-A minimalist monthly habit tracker with spreadsheet-style interaction — lightweight, offline-ready, and built using vanilla HTML, CSS, and JavaScript.
+A minimalist monthly habit tracker with spreadsheet-style interaction — **lightweight, offline-ready, and built using vanilla HTML, CSS, and JavaScript**.
+
 ---
 
 ## ✨ Features
@@ -94,7 +95,3 @@ Edit the CSS variables and arrays directly in `index.html`:
 - **Mood scale** — currently 1–10, adjustable in `cycleMood()`
 
 ---
-
-## 📄 License
-
-MIT — use it however you want.

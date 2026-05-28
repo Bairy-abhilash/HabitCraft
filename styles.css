@@ -45,6 +45,10 @@ table.habit-grid thead th{background:#d0c8c0;font-weight:700;font-size:10px;colo
 table.habit-grid .week-header{background:#b8b0a8;font-weight:800;font-size:10px;color:#333;text-align:center;letter-spacing:0.5px;}
 table.habit-grid .habit-name-cell{text-align:left;padding-left:6px;font-weight:600;font-size:11px;background:#ddd8d0;min-width:160px;white-space:nowrap;cursor:default;}
 table.habit-grid .habit-name-cell .emoji{margin-right:4px;}
+
+/* Empty placeholder habit styling */
+table.habit-grid .habit-name-cell.empty{color:#777;font-style:italic;background:#e9e6e2;}
+table.habit-grid .habit-name-cell.empty .placeholder{color:#777;font-style:italic;}
 table.habit-grid .day-header{font-size:9px;font-weight:700;color:#555;}
 table.habit-grid .day-num{font-size:9px;color:#888;font-weight:600;}
 

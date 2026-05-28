@@ -15,6 +15,29 @@ let selectedEmoji='';
 // === INIT ===
 function init(){
   loadData();
+  // MIGRATION: replace any existing habits with the new default set once
+  // This ensures the reduced list appears in the UI even if previous data existed.
+  if(!data.migratedToV1){
+    data.habits=[
+      {id:uid(),name:'Cold Shower',emoji:'',color:'#0984e3'},
+      {id:uid(),name:'Plan the day',emoji:'',color:'#00b894'},
+      {id:uid(),name:'DSA',emoji:'',color:'#fdcb6e'},
+      {id:uid(),name:'Drink 2L water',emoji:'',color:'#d63031'},
+      {id:uid(),name:'Github',emoji:'',color:'#0984e3'},
+      {id:uid(),name:'Devlopment',emoji:'',color:'#6c5ce7'},
+      {id:uid(),name:'',emoji:'',color:'#cccccc'},
+    ];
+    data.migratedToV1=true;
+    saveData();
+  }
+  // Ensure there's an empty placeholder habit row so it appears even when data exists
+  if(data.habits && data.habits.length>0){
+    const hasEmpty=data.habits.some(h=>!h.name||h.name.trim()==='');
+    if(!hasEmpty){
+      data.habits.push({id:uid(),name:'',emoji:'',color:'#cccccc'});
+      saveData();
+    }
+  }
   const now=new Date();
   currentYear=now.getFullYear();
   currentMonth=now.getMonth();
@@ -32,19 +55,16 @@ function init(){
   document.getElementById('yearInput').addEventListener('change',(e)=>{currentYear=parseInt(e.target.value);render();});
 
   if(!data.habits||data.habits.length===0){
+    // Default habits reduced to 6 rows as requested
     data.habits=[
-      {id:uid(),name:'Wake up at 6:00 AM',emoji:'',color:'#6c5ce7'},
       {id:uid(),name:'Cold Shower',emoji:'',color:'#0984e3'},
       {id:uid(),name:'Plan the day',emoji:'',color:'#00b894'},
-      {id:uid(),name:'Work',emoji:'',color:'#fdcb6e'},
-      {id:uid(),name:'No sugar',emoji:'',color:'#e17055'},
-      {id:uid(),name:'No Alcohol',emoji:'',color:'#d63031'},
-      {id:uid(),name:'Read 10 pages',emoji:'',color:'#0984e3'},
-      {id:uid(),name:'Meditation',emoji:'',color:'#6c5ce7'},
-      {id:uid(),name:'Yoga',emoji:'',color:'#00cec9'},
-      {id:uid(),name:'Social media less than 1H',emoji:'',color:'#e94560'},
-      {id:uid(),name:'Gym',emoji:'',color:'#f5a623'},
-      {id:uid(),name:'Talk with friends',emoji:'',color:'#fd79a8'},
+      {id:uid(),name:'DSA',emoji:'',color:'#fdcb6e'},
+      {id:uid(),name:'Drink 2L water',emoji:'',color:'#d63031'},
+      {id:uid(),name:'Github',emoji:'',color:'#0984e3'},
+      {id:uid(),name:'Devlopment',emoji:'',color:'#6c5ce7'},
+      // Empty placeholder row so you can add a habit directly on the page
+      {id:uid(),name:'',emoji:'',color:'#cccccc'},
     ];
     saveData();
   }
@@ -154,7 +174,9 @@ function renderGrid(){
   data.habits.forEach(hb=>{
     if(!data.checks[mkey][hb.id])data.checks[mkey][hb.id]={};
     body+='<tr>';
-    body+=`<td class="habit-name-cell"><span class="emoji">${hb.emoji}</span>${hb.name}
+    const displayName = hb.name && hb.name.trim() !== '' ? hb.name : '<span class="placeholder">Click to add habit</span>';
+    const nameClass = hb.name && hb.name.trim() !== '' ? 'habit-name-cell' : 'habit-name-cell empty';
+    body+=`<td class="${nameClass}"><span class="emoji">${hb.emoji}</span>${displayName}
       <span style="float:right;display:inline-flex;gap:2px;">
         <span style="cursor:pointer;font-size:12px;" onclick="editHabit('${hb.id}')" title="Edit">[EDIT]</span>
         <span style="cursor:pointer;font-size:12px;" onclick="deleteHabit('${hb.id}')" title="Delete">[DEL]</span>

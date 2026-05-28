@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Habit Tracker</title>
+<title>HabitCraft</title>
 <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -15,14 +15,14 @@
 
     <!-- Title -->
     <div class="title-block">
-      <h1>HABIT TRACKER</h1>
+      <h1>HabitCraft</h1>
       <h2 id="subtitleMonth">~JANUARY~</h2>
     </div>
 
     <!-- Calendar Settings -->
     <div class="calendar-settings">
       <div class="label">CALENDAR SETTINGS</div>
-      <div class="row"><span class="label">YEAR</span><input type="number" id="yearInput" min="2020" max="2040" style="width:70px;"/></div>
+      <div class="row"><span class="label">YEAR</span><input type="number" id="yearInput" min="2020" max="2050" style="width:70px;"/></div>
       <div class="row"><span class="label">MONTH</span><select id="monthSelect"></select></div>
     </div>
 
@@ -38,14 +38,14 @@
       <canvas id="weeklyChart" height="110"></canvas>
     </div>
 
-    <!-- Stats -->
+
     <div class="stats-col">
       <div class="stat-box"><div class="lbl">Goal</div><div class="val" id="statGoal">0</div></div>
       <div class="stat-box"><div class="lbl">Completed</div><div class="val" id="statDone">0</div></div>
       <div class="stat-box"><div class="lbl">Left</div><div class="val" id="statLeft">0</div></div>
     </div>
 
-    <!-- Overall Stats Donut -->
+
     <div class="overall-box">
       <h3>Overall Stats</h3>
       <div class="donut-wrap">
@@ -59,7 +59,6 @@
 
   </div>
 
-  <!-- ===== HABIT GRID ===== -->
   <div class="habits-section">
     <div class="manage-bar">
       <h3>My Habits</h3>
@@ -75,10 +74,8 @@
     </div>
   </div>
 
-  <!-- ===== BOTTOM ROW ===== -->
   <div class="bottom-row">
 
-    <!-- Left: Mood + Mental Stats -->
     <div class="bottom-left">
       <div class="mood-section">
         <div class="mood-label">Mood</div>
@@ -96,7 +93,6 @@
       </div>
     </div>
 
-    <!-- Right: Analysis + Top 10 -->
     <div class="bottom-right">
       <div class="analysis-box">
         <h3>Analysis</h3>
@@ -106,7 +102,7 @@
         </table>
       </div>
       <div class="top10-box">
-        <h3>Top 10 Daily Habits</h3>
+        <h3>My current habits</h3>
         <ol class="top10-list" id="top10List"></ol>
       </div>
     </div>
@@ -115,7 +111,6 @@
 
 </div>
 
-<!-- ADD/EDIT MODAL -->
 <div class="modal-overlay" id="habitModal">
   <div class="modal">
     <h2 id="modalTitle">Add New Habit</h2>
