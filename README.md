@@ -1,9 +1,6 @@
-# 📋 HABIT TRACKER
+# 📋 HabitCraft
 
-A spreadsheet-style monthly habit tracker built with pure HTML, CSS & JavaScript — **zero dependencies, single file, works offline.**
-
-Matches the classic grey/beige dashboard aesthetic with checkboxes, bar charts, donut chart, analysis table, mood tracking, and more.
-
+A minimalist monthly habit tracker with spreadsheet-style interaction — lightweight, offline-ready, and built using vanilla HTML, CSS, and JavaScript.
 ---
 
 ## ✨ Features
@@ -52,11 +49,13 @@ That's it. No build step. No npm install. No framework.
 ## 📁 Project Structure
 
 ```
-habit-tracker/
-├── index.html    ← The entire app (single file)
-├── README.md     ← This file
-├── LICENSE       ← MIT License
-└── .gitignore
+HabitCraft/
+├── index.html      ← Main application structure
+├── style.css       ← Styling and responsive design
+├── script.js       ← App functionality and logic
+├── README.md       ← Project documentation
+├── LICENSE         ← MIT License
+└── .gitignore      ← Ignored files and folders
 ```
 
 ---
