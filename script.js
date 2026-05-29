@@ -95,6 +95,12 @@ function daysInMonth(){return new Date(currentYear,currentMonth+1,0).getDate();}
 // ISO weekday: Mon=0 ... Sun=6
 function isoDow(d){const dow=new Date(currentYear,currentMonth,d).getDay();return dow===0?6:dow-1;}
 
+function isPastDate(year,month,day){
+  const today=new Date();
+  const dateToCheck=new Date(year,month,day,23,59,59,999);
+  return dateToCheck < today;
+}
+
 // === RENDER ALL ===
 function render(){
   document.getElementById('subtitleMonth').textContent=`~${MONTH_NAMES[currentMonth].toUpperCase()}~`;
@@ -181,7 +187,9 @@ function renderGrid(){
     </td>`;
     for(let d=1;d<=days;d++){
       const checked=!!data.checks[mkey][hb.id][d];
-      body+=`<td class="cb-cell"><input type="checkbox" ${checked?'checked':''} onchange="toggleDay('${hb.id}',${d},this.checked)"/></td>`;
+      const pastDay=isPastDate(currentYear,currentMonth,d);
+      const cellClass=`cb-cell${pastDay?' disabled':''}${pastDay&&checked?' checked-disabled':''}`;
+      body+=`<td class="${cellClass}"><input type="checkbox" ${checked?'checked':''} ${pastDay?'disabled title="Past days cannot be changed"':''} onchange="toggleDay('${hb.id}',${d},this.checked)"/></td>`;
     }
     body+='</tr>';
   });
@@ -190,6 +198,7 @@ function renderGrid(){
 
 // === TOGGLE ===
 function toggleDay(hid,day,val){
+  if(isPastDate(currentYear,currentMonth,day)) return;
   const mkey=mk();
   if(!data.checks[mkey])data.checks[mkey]={};
   if(!data.checks[mkey][hid])data.checks[mkey][hid]={};
