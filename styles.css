@@ -54,7 +54,12 @@ table.habit-grid .day-num{font-size:9px;color:#888;font-weight:600;}
 
 /* Checkbox cells */
 .cb-cell{width:26px;height:22px;cursor:pointer;vertical-align:middle;}
-.cb-cell input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:#4a7c59;}
+.cb-cell input[type=checkbox]{width:14px;height:14px;cursor:pointer;accent-color:#4a7c59;background:#fff;}
+.cb-cell.disabled{background:#e4e2dd;cursor:not-allowed;}
+.cb-cell.disabled.checked-disabled{background:#c8c4be;border:1px solid #b0aca6;}
+.cb-cell.disabled input[type=checkbox]{cursor:not-allowed;opacity:0.55;background:#fff;}
+.cb-cell.disabled.checked-disabled input[type=checkbox]{opacity:0.85;background:#f0efe9;accent-color:#555;}
+.cb-cell.disabled input[type=checkbox]:checked{accent-color:#666;}
 
 /* Habit row hover */
 table.habit-grid tbody tr:hover .habit-name-cell{background:#d0ccc4;}
