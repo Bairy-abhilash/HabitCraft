@@ -436,8 +436,8 @@ function renderMentalChart(){
     ctx.strokeStyle=lineColor;ctx.lineWidth=1.5;ctx.stroke();
   }
 
-  drawArea(md,'#e07050','rgba(224,112,80,0.25)');
-  drawArea(mt,'#d4a050','rgba(212,160,80,0.25)');
+  drawArea(md,'#f33a3a','rgba(241, 89, 69, 0.25)');
+  drawArea(mt,'#f7eb4f','rgba(255, 252, 74, 0.25)');
 
   // X labels
   ctx.fillStyle='#999';ctx.font='8px sans-serif';ctx.textAlign='center';
