@@ -437,17 +437,19 @@ function renderMentalChart(){
   }
 
   drawArea(md,'#f33a3a','rgba(241, 89, 69, 0.25)');
-  drawArea(mt,'#f7eb4f','rgba(255, 252, 74, 0.25)');
+  drawArea(mt,'#1a1ee4','rgba(94, 127, 236, 0.25)');
 
-  // X labels
-  ctx.fillStyle='#999';ctx.font='8px sans-serif';ctx.textAlign='center';
-  for(let d=1;d<=days;d++){
-    if(days<=16||d%2===1){
-      const x=pad+((d-1)/(days-1))*chartW;
-      ctx.fillText(d,x,8+chartH+12);
-    }
-  }
-  ctx.textAlign='start';
+ // X labels
+ctx.fillStyle = '#383636';
+ctx.font = '8px sans-serif';
+ctx.textAlign = 'center';
+
+for (let d = 1; d <= days; d++) {
+    const x = pad + ((d - 1) / (days - 1)) * chartW;
+    ctx.fillText(d, x, 8 + chartH + 12);
+}
+
+ctx.textAlign = 'start';
 }
 
 // === ADD/EDIT HABIT ===
