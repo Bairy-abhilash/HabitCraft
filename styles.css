@@ -65,12 +65,10 @@ table.habit-grid .day-num{font-size:9px;color:#888;font-weight:600;}
 table.habit-grid tbody tr:hover .habit-name-cell{background:#d0ccc4;}
 
 /* === BOTTOM SECTION === */
-.bottom-row{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap;}
-.bottom-left{flex:1;min-width:300px;display:flex;flex-direction:column;gap:10px;}
-.bottom-right{display:flex;flex-direction:column;gap:10px;min-width:300px;}
+.bottom-row{display:grid;grid-template-columns:1.4fr 1fr;gap:10px;margin-top:10px;align-items:start;}
 
 /* Mood row */
-.mood-section{background:#e8e0d8;border:1px solid #aaa;border-radius:6px;padding:8px 10px;}
+.mood-section{background:#e8e0d8;border:1px solid #aaa;border-radius:6px;padding:8px 10px;grid-column:1 / -1;}
 .mood-section .mood-label{font-size:11px;font-weight:700;margin-bottom:2px;}
 .mood-row{display:flex;gap:1px;flex-wrap:wrap;}
 .mood-val{width:22px;height:22px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;border:1px solid #bbb;background:#ddd8d0;cursor:pointer;border-radius:2px;user-select:none;}
@@ -103,16 +101,6 @@ table.analysis-tbl th{background:#d0c8c0;font-weight:700;font-size:9px;text-tran
 table.analysis-tbl td:first-child{text-align:left;font-weight:600;}
 .progress-bar{width:50px;height:8px;background:#ccc;border-radius:4px;overflow:hidden;display:inline-block;vertical-align:middle;}
 .progress-fill{height:100%;border-radius:4px;}
-
-/* Top 10 */
-.top10-box{background:#e8e0d8;border:1px solid #aaa;border-radius:6px;padding:8px 10px;}
-.top10-box h3{font-size:11px;font-weight:700;margin-bottom:6px;text-align:center;text-transform:uppercase;letter-spacing:1px;}
-.top10-list{list-style:none;font-size:11px;}
-.top10-list li{display:flex;align-items:center;gap:8px;padding:3px 0;border-bottom:1px solid #ccc5bb;}
-.top10-list li:last-child{border-bottom:none;}
-.top10-rank{font-weight:800;min-width:18px;text-align:right;color:#555;}
-.top10-name{flex:1;}
-.top10-emoji{font-size:13px;}
 
 /* === BUTTONS === */
 .btn{padding:4px 12px;border-radius:4px;border:1px solid #999;background:#d8d0c8;color:#333;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.15s;}

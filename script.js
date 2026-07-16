@@ -109,7 +109,6 @@ function render(){
   renderStats();
   renderGrid();
   renderAnalysis();
-  renderTop10();
   renderMoodRows();
   renderDailyChart();
   renderWeeklyChart();
@@ -206,7 +205,7 @@ function toggleDay(hid,day,val){
   else delete data.checks[mkey][hid][day];
   saveData();
   // Re-render stats & charts but NOT the grid (to keep checkbox state smooth)
-  renderStats();renderAnalysis();renderTop10();renderDailyChart();renderWeeklyChart();renderDonut();
+  renderStats();renderAnalysis();renderDailyChart();renderWeeklyChart();renderDonut();
 }
 
 // === ANALYSIS TABLE ===
@@ -229,22 +228,6 @@ function renderAnalysis(){
     </tr>`;
   });
   document.getElementById('analysisBody').innerHTML=html;
-}
-
-// === TOP 10 ===
-function renderTop10(){
-  const days=daysInMonth(),mkey=mk(),ck=data.checks[mkey]||{};
-  const ranked=data.habits.map(hb=>{
-    let actual=0;const hc=ck[hb.id]||{};
-    for(let d=1;d<=days;d++){if(hc[d])actual++;}
-    return{...hb,pct:Math.round(actual/days*100)};
-  }).sort((a,b)=>b.pct-a.pct).slice(0,10);
-
-  let html='';
-  ranked.forEach((h,i)=>{
-    html+=`<li><span class="top10-rank">${i+1}</span><span class="top10-name">${h.name}</span><span class="top10-emoji">${h.emoji}</span></li>`;
-  });
-  document.getElementById('top10List').innerHTML=html;
 }
 
 // === MOOD ROWS ===
