@@ -408,10 +408,10 @@ function renderMentalChart(){
   const pad=22,chartH=95,chartW=W-pad-10;
 
   // Grid
-  ctx.fillStyle='#999';ctx.font='9px sans-serif';
+  ctx.fillStyle='#1d1c1c';ctx.font='9px sans-serif';
   for(let i=0;i<=10;i+=2){
     const y=8+chartH-(i/10)*chartH;
-    ctx.strokeStyle='#ccc';ctx.lineWidth=0.3;
+    ctx.strokeStyle='#757373';ctx.lineWidth=0.3;
     ctx.beginPath();ctx.moveTo(pad,y);ctx.lineTo(W-4,y);ctx.stroke();
     ctx.fillText(i,4,y+3);
   }
