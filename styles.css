@@ -119,6 +119,25 @@ body.dark-mode .progress-fill{opacity:.95;}
 .mood-val.level-9{background:#50b850;color:#003300;}
 .mood-val.level-10{background:#30a830;color:#002200;}
 
+/* Custom select for Mood/Motivation */
+.mood-cell{display:inline-block;margin-right:2px}
+.custom-select{position:relative;display:inline-block}
+.custom-select-toggle{width:22px;height:22px;display:flex;align-items:center;justify-content:center;border:1px solid #bbb;background:#ddd8d0;cursor:pointer;border-radius:4px;font-size:14px;line-height:1;padding:0;transition:transform .12s ease,box-shadow .12s ease}
+.custom-select-toggle:focus{outline:none;box-shadow:0 0 0 3px rgba(80,120,200,0.12)}
+.custom-select.open .custom-select-toggle{transform:translateY(-2px);box-shadow:0 8px 22px rgba(0,0,0,0.12)}
+.custom-select-options{position:absolute;left:0;top:calc(100% + 6px);min-width:180px;background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:8px;padding:6px;box-shadow:0 10px 30px rgba(0,0,0,0.08);z-index:60;opacity:0;transform:translateY(-6px) scale(.98);pointer-events:none;transition:all .18s cubic-bezier(.2,.9,.2,1)}
+.custom-select.open .custom-select-options{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.custom-select-option{padding:6px 8px;border-radius:6px;cursor:pointer;font-size:13px;display:flex;gap:8px;align-items:center}
+.custom-select-option:hover,.custom-select-option:focus{background:#f1efe9}
+.custom-select-option:active{background:#e6e2d9}
+.custom-select-options::-webkit-scrollbar{width:8px;height:8px}
+.custom-select-options::-webkit-scrollbar-thumb{background:rgba(0,0,0,0.08);border-radius:6px}
+
+/* Dark mode adjustments */
+body.dark-mode .custom-select-toggle{background:#3b434b;color:#f3efe9;border-color:#5a6570}
+body.dark-mode .custom-select-options{background:#2f363d;border-color:#4d5560;color:#f3efe9}
+body.dark-mode .custom-select-option:hover,body.dark-mode .custom-select-option:focus{background:#3b434b}
+
 /* Mental Stats chart */
 .mental-box{padding:8px 10px;text-align:center;height:100%;}
 .mental-box:hover,.analysis-box:hover,.quote-card:hover,.chart-box:hover,.stat-box:hover,.overall-box:hover,.mood-section:hover,.habit-grid-wrap:hover{transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,0.1);}
