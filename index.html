@@ -4,11 +4,16 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>HabitCraft</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="styles.css"/>
+<link rel="stylesheet" href="celebration.css"/>
 </head>
 <body>
 
 <div class="frame">
+  <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode">🌙</button>
 
   <!-- ===== TOP ROW ===== -->
   <div class="header-row">
@@ -17,6 +22,7 @@
     <div class="title-block">
       <h1>HabitCraft</h1>
       <h2 id="subtitleMonth">~JANUARY~</h2>
+        <div class="achievement-badges" id="achievementBadges" aria-label="Achievements"></div>
     </div>
 
     <!-- Calendar Settings -->
@@ -61,7 +67,6 @@
 
   <div class="habits-section">
     <div class="manage-bar">
-      <h3>My Habits</h3>
       <button class="btn btn-add" onclick="openAddHabit()">+ Add Habit</button>
       <button class="btn btn-sm" onclick="exportData()" title="Export data as JSON">Export</button>
       <button class="btn btn-sm" onclick="importData()" title="Import JSON data">Import</button>
@@ -75,28 +80,38 @@
   </div>
 
   <div class="bottom-row">
-    <div class="mood-section">
-      <div class="mood-label">Mood</div>
-      <div class="mood-row" id="moodRow"></div>
-      <div class="mood-label" style="margin-top:4px;">Motivation</div>
-      <div class="mood-row" id="motivRow"></div>
-    </div>
+    <div class="mood-quote-row">
+      <div class="mood-section">
+        <div class="mood-label">Mood</div>
+        <div class="mood-row" id="moodRow"></div>
+        <div class="mood-label" style="margin-top:4px;">Motivation</div>
+        <div class="mood-row" id="motivRow"></div>
+      </div>
 
-    <div class="mental-box">
-      <h3>Mental Stats</h3>
-      <canvas id="mentalChart" height="130"></canvas>
-      <div class="mental-legend">
-        <span><span class="dot" style="background:#f33a3a;"></span> Mood</span>
-        <span><span class="dot" style="background:#1a1ee4;"></span> Motivation</span>
+      <div class="quote-card" id="quoteCard">
+        <div class="quote-title">💡 Quote of the Day</div>
+        <div class="quote-text" id="quoteText"></div>
+        <div class="quote-author" id="quoteAuthor"></div>
       </div>
     </div>
 
-    <div class="analysis-box">
-      <h3>Analysis</h3>
-      <table class="analysis-tbl">
-        <thead><tr><th></th><th>Goal</th><th>Done</th><th>Left</th><th>Progress</th><th>%</th></tr></thead>
-        <tbody id="analysisBody"></tbody>
-      </table>
+    <div class="bottom-cards-row">
+      <div class="mental-box">
+        <h3>Mental Stats</h3>
+        <canvas id="mentalChart" height="130"></canvas>
+        <div class="mental-legend">
+          <span><span class="dot" style="background:#f33a3a;"></span> Mood</span>
+          <span><span class="dot" style="background:#1a1ee4;"></span> Motivation</span>
+        </div>
+      </div>
+
+      <div class="analysis-box">
+        <h3>Analysis</h3>
+        <table class="analysis-tbl">
+          <thead><tr><th></th><th>Goal</th><th>Done</th><th>Left</th><th>Progress</th><th>%</th></tr></thead>
+          <tbody id="analysisBody"></tbody>
+        </table>
+      </div>
     </div>
   </div>
 
