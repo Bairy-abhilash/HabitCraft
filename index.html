@@ -75,38 +75,29 @@
   </div>
 
   <div class="bottom-row">
+    <div class="mood-section">
+      <div class="mood-label">Mood</div>
+      <div class="mood-row" id="moodRow"></div>
+      <div class="mood-label" style="margin-top:4px;">Motivation</div>
+      <div class="mood-row" id="motivRow"></div>
+    </div>
 
-    <div class="bottom-left">
-      <div class="mood-section">
-        <div class="mood-label">Mood</div>
-        <div class="mood-row" id="moodRow"></div>
-        <div class="mood-label" style="margin-top:4px;">Motivation</div>
-        <div class="mood-row" id="motivRow"></div>
-      </div>
-      <div class="mental-box">
-        <h3>Mental Stats</h3>
-        <canvas id="mentalChart" height="130"></canvas>
-        <div class="mental-legend">
-          <span><span class="dot" style="background:#f33a3a;"></span> Mood</span>
-          <span><span class="dot" style="background:#1a1ee4;"></span> Motivation</span>
-        </div>
+    <div class="mental-box">
+      <h3>Mental Stats</h3>
+      <canvas id="mentalChart" height="130"></canvas>
+      <div class="mental-legend">
+        <span><span class="dot" style="background:#f33a3a;"></span> Mood</span>
+        <span><span class="dot" style="background:#1a1ee4;"></span> Motivation</span>
       </div>
     </div>
 
-    <div class="bottom-right">
-      <div class="analysis-box">
-        <h3>Analysis</h3>
-        <table class="analysis-tbl">
-          <thead><tr><th></th><th>Goal</th><th>Done</th><th>Left</th><th>Progress</th><th>%</th></tr></thead>
-          <tbody id="analysisBody"></tbody>
-        </table>
-      </div>
-      <div class="top10-box">
-        <h3>My current habits</h3>
-        <ol class="top10-list" id="top10List"></ol>
-      </div>
+    <div class="analysis-box">
+      <h3>Analysis</h3>
+      <table class="analysis-tbl">
+        <thead><tr><th></th><th>Goal</th><th>Done</th><th>Left</th><th>Progress</th><th>%</th></tr></thead>
+        <tbody id="analysisBody"></tbody>
+      </table>
     </div>
-
   </div>
 
 </div>
